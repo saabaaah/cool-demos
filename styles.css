@@ -189,6 +189,46 @@ body {
   width: 100%;
 }
 
+/* Social Links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+.social-link.coffee-link:hover {
+  color: #FFDD00;
+  border-color: #FFDD00;
+  box-shadow: 0 10px 30px rgba(255, 221, 0, 0.2);
+}
+
 /* Main Content */
 .main {
   flex: 1;
@@ -221,13 +261,7 @@ body {
   animation: cardEntrance 0.6s ease-out forwards;
 }
 
-.demo-card[data-delay="0"] {
-  animation-delay: 0.5s;
-}
-
-.demo-card[data-delay="1"] {
-  animation-delay: 0.7s;
-}
+/* Animation delays set via JavaScript for scalability */
 
 @keyframes cardEntrance {
   to {
@@ -388,6 +422,95 @@ body {
   box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
 }
 
+/* Tech Stack Tags */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.tech-tag {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  transition: all 0.3s ease;
+}
+
+.demo-card:hover .tech-tag {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+}
+
+/* Card Actions */
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.card-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.card-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.play-btn {
+  background: var(--accent);
+  color: white;
+  flex: 1;
+  justify-content: center;
+}
+
+.play-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
+}
+
+.source-btn {
+  color: var(--text-secondary);
+  border-color: var(--border);
+}
+
+.source-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+  background: var(--card-bg);
+}
+
+.share-btn {
+  color: var(--text-secondary);
+  border-color: var(--border);
+}
+
+.share-btn:hover {
+  color: #10b981;
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
 .card-arrow {
   position: absolute;
   bottom: 1.5rem;
@@ -416,9 +539,26 @@ body {
 
 /* Coming Soon Card */
 .coming-soon {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: default;
   pointer-events: none;
+  position: relative;
+}
+
+.coming-soon::before {
+  content: 'Coming Soon';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 10;
 }
 
 .coming-soon:hover {
@@ -442,16 +582,28 @@ body {
 /* Footer */
 .footer {
   text-align: center;
-  padding: 3rem 0 2rem;
+  padding: 2.5rem 0 2rem;
   border-top: 1px solid var(--border);
   margin-top: 4rem;
   animation: fadeInUp 0.8s ease-out 0.9s both;
 }
 
-.footer-link {
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-text {
   color: var(--text-secondary);
-  text-decoration: none;
   font-size: 0.95rem;
+}
+
+.footer-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
@@ -469,12 +621,69 @@ body {
 }
 
 .footer-link:hover {
-  color: var(--accent);
-  transform: translateY(-2px);
+  color: var(--accent-hover);
 }
 
 .footer-link:hover::after {
   width: 100%;
+}
+
+.footer-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footer-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.footer-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-icon:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.footer-icon.coffee:hover {
+  color: #FFDD00;
+  border-color: #FFDD00;
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(99, 102, 241, 0.2);
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* Background Effects */
@@ -527,6 +736,15 @@ body::after {
     gap: 0.5rem;
   }
 
+  .social-links {
+    gap: 0.75rem;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+
   .demos-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -534,6 +752,19 @@ body::after {
 
   .demo-card {
     padding: 2rem;
+  }
+
+  .card-actions {
+    flex-wrap: wrap;
+  }
+
+  .play-btn {
+    flex: 1 1 100%;
+    order: -1;
+  }
+
+  .source-btn, .share-btn {
+    flex: 1;
   }
 }
 
@@ -548,11 +779,31 @@ body::after {
     font-size: 1rem;
   }
 
+  .social-links {
+    margin-top: 1rem;
+  }
+
   .demo-card {
     padding: 1.5rem;
   }
 
   .demo-icon {
     font-size: 2.5rem;
+  }
+
+  .card-btn {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .toast {
+    left: 1rem;
+    right: 1rem;
+    transform: translateY(20px);
+    text-align: center;
+  }
+
+  .toast.show {
+    transform: translateY(0);
   }
 }

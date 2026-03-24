@@ -109,6 +109,54 @@ class ParticleBackground {
   }
 }
 
+// Share functionality
+function shareDemo(title, path) {
+  const url = new URL(path, window.location.href).href;
+
+  if (navigator.share) {
+    navigator.share({
+      title: title + ' - Cool Demos',
+      text: 'Check out this cool demo: ' + title,
+      url: url
+    }).catch(() => {
+      copyToClipboard(url);
+    });
+  } else {
+    copyToClipboard(url);
+  }
+}
+
+function copyToClipboard(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    showToast('Link copied to clipboard!');
+  }).catch(() => {
+    // Fallback for older browsers
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    showToast('Link copied to clipboard!');
+  });
+}
+
+function showToast(message) {
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.classList.add('show'), 10);
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 300);
+  }, 2000);
+}
+
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById('particleCanvas');
@@ -116,10 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
     new ParticleBackground(canvas);
   }
   
-  // Add stagger animation to cards
+  // Add stagger animation to cards (faster stagger for many cards)
   const cards = document.querySelectorAll('.demo-card');
   cards.forEach((card, index) => {
-    card.style.animationDelay = `${0.5 + index * 0.2}s`;
+    const delay = 0.3 + Math.min(index * 0.08, 1.2); // Cap max delay at 1.5s
+    card.style.animationDelay = `${delay}s`;
   });
 });
 
