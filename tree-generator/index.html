@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tree Generator | Cool Demos</title>
+  <meta name="description" content="Tree Generator - Procedural fractal trees growing before your eyes">
+  <meta name="author" content="Sabah HM">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="../index.html" class="back-btn" title="Back to Cool Demos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </a>
+
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Tree Generator</h1>
+      <p class="subtitle">Procedural Fractal Growth</p>
+    </header>
+
+    <div class="canvas-wrapper">
+      <canvas id="treeCanvas"></canvas>
+    </div>
+
+    <div class="controls">
+      <div class="control-group">
+        <button id="generateBtn" class="btn btn-primary">Generate</button>
+        <button id="animateBtn" class="btn">Animate</button>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Depth</label>
+        <input type="range" id="depthSlider" min="5" max="12" value="9" class="slider">
+        <span id="depthValue" class="slider-value">9</span>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Angle</label>
+        <input type="range" id="angleSlider" min="10" max="50" value="25" class="slider">
+        <span id="angleValue" class="slider-value">25°</span>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Length</label>
+        <input type="range" id="lengthSlider" min="0.5" max="0.9" step="0.05" value="0.7" class="slider">
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Season</label>
+        <select id="seasonSelect" class="select">
+          <option value="summer">Summer</option>
+          <option value="autumn">Autumn</option>
+          <option value="winter">Winter</option>
+          <option value="spring">Spring</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="info">
+      <p>Recursive branching creates natural-looking trees</p>
+    </div>
+
+    <footer class="footer">
+      <p>Made by <a href="https://www.linkedin.com/in/sabah-hm/" target="_blank" rel="noopener">Sabah HM</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
