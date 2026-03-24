@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starfield | Cool Demos</title>
+  <meta name="description" content="Starfield - Fly through infinite space at warp speed">
+  <meta name="author" content="Sabah HM">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="../index.html" class="back-btn" title="Back to Cool Demos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </a>
+
+  <canvas id="starfield"></canvas>
+
+  <div class="overlay">
+    <h1 class="title">Starfield</h1>
+    <p class="subtitle">Move mouse to steer • Scroll to change speed</p>
+  </div>
+
+  <div class="controls">
+    <div class="control-group">
+      <label class="control-label">Speed</label>
+      <input type="range" id="speedSlider" min="1" max="50" value="15" class="slider">
+    </div>
+    <div class="control-group">
+      <label class="control-label">Stars</label>
+      <input type="range" id="starsSlider" min="100" max="2000" value="800" class="slider">
+    </div>
+    <div class="control-group">
+      <label class="control-label">Trails</label>
+      <input type="range" id="trailSlider" min="0" max="100" value="60" class="slider">
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Made by <a href="https://www.linkedin.com/in/sabah-hm/" target="_blank" rel="noopener">Sabah HM</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
