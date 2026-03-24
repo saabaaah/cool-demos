@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gravity Simulator | Cool Demos</title>
+  <meta name="description" content="Gravity Simulator - Watch planets orbit, collide, and merge under gravitational forces">
+  <meta name="author" content="Sabah HM">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="../index.html" class="back-btn" title="Back to Cool Demos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </a>
+
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Gravity Simulator</h1>
+      <p class="subtitle">Orbital Mechanics</p>
+    </header>
+
+    <div class="canvas-wrapper">
+      <canvas id="gravityCanvas"></canvas>
+      <div class="stats">
+        Bodies: <span id="bodyCount">0</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-group">
+        <button id="clearBtn" class="btn">Clear</button>
+        <button id="presetBtn" class="btn">Solar System</button>
+        <button id="chaosBtn" class="btn">Chaos</button>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Gravity</label>
+        <input type="range" id="gravitySlider" min="0.1" max="3" step="0.1" value="1" class="slider">
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Trails</label>
+        <input type="range" id="trailSlider" min="0" max="100" value="50" class="slider">
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Merge</label>
+        <div class="toggle-group">
+          <button class="toggle-btn active" data-merge="true">On</button>
+          <button class="toggle-btn" data-merge="false">Off</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="info">
+      <p><strong>Click</strong> to spawn • <strong>Drag</strong> to set velocity • <strong>Scroll</strong> to change size</p>
+    </div>
+
+    <footer class="footer">
+      <p>Made by <a href="https://www.linkedin.com/in/sabah-hm/" target="_blank" rel="noopener">Sabah HM</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
