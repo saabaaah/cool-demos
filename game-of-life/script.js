@@ -29,29 +29,21 @@ class GameOfLife {
   }
 
   init() {
-    this.resize();
     this.createGrid();
+    this.resize();
     this.addStartingPattern();
     window.addEventListener('resize', () => this.resize());
   }
 
   addStartingPattern() {
-    // Add a few gliders and some random cells for an interesting start
-    const patterns = [
-      { x: 10, y: 10, pattern: [[0, -1], [1, 0], [-1, 1], [0, 1], [1, 1]] }, // glider
-      { x: 35, y: 15, pattern: [[0, -1], [1, 0], [-1, 1], [0, 1], [1, 1]] }, // glider
-      { x: 25, y: 25, pattern: [[-4, -6], [-3, -6], [-2, -6], [2, -6], [3, -6], [4, -6], [-4, -1], [-3, -1], [-2, -1], [2, -1], [3, -1], [4, -1], [-4, 1], [-3, 1], [-2, 1], [2, 1], [3, 1], [4, 1], [-4, 6], [-3, 6], [-2, 6], [2, 6], [3, 6], [4, 6], [-6, -4], [-6, -3], [-6, -2], [-6, 2], [-6, 3], [-6, 4], [-1, -4], [-1, -3], [-1, -2], [-1, 2], [-1, 3], [-1, 4], [1, -4], [1, -3], [1, -2], [1, 2], [1, 3], [1, 4], [6, -4], [6, -3], [6, -2], [6, 2], [6, 3], [6, 4]] } // pulsar
-    ];
-
-    patterns.forEach(({ x, y, pattern }) => {
-      pattern.forEach(([dx, dy]) => {
-        const px = x + dx;
-        const py = y + dy;
-        if (px >= 0 && px < this.gridSize && py >= 0 && py < this.gridSize) {
-          this.grid[px][py] = 1;
+    // Add random cells for an interesting start (about 20% density)
+    for (let i = 0; i < this.gridSize; i++) {
+      for (let j = 0; j < this.gridSize; j++) {
+        if (Math.random() < 0.2) {
+          this.grid[i][j] = 1;
         }
-      });
-    });
+      }
+    }
     this.render();
   }
 
@@ -236,7 +228,8 @@ class GameOfLife {
   }
 
   updateGenerationDisplay() {
-    document.getElementById('generation').textContent = this.generation;
+    const el = document.getElementById('generation');
+    if (el) el.textContent = this.generation;
   }
 
   // Patterns
@@ -256,11 +249,13 @@ class GameOfLife {
 
   // Rendering
   render() {
+    if (!this.grid.length || !this.cellSize) return;
+
     this.ctx.fillStyle = '#0a0a0f';
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-    // Draw grid lines
-    this.ctx.strokeStyle = this.colors.grid;
+    // Draw grid lines (more visible)
+    this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
     this.ctx.lineWidth = 0.5;
     for (let i = 0; i <= this.gridSize; i++) {
       this.ctx.beginPath();
@@ -276,13 +271,12 @@ class GameOfLife {
     // Draw cells
     for (let i = 0; i < this.gridSize; i++) {
       for (let j = 0; j < this.gridSize; j++) {
-        const x = i * this.cellSize;
-        const y = j * this.cellSize;
-
-        if (this.grid[i][j]) {
+        if (this.grid[i] && this.grid[i][j]) {
+          const x = i * this.cellSize;
+          const y = j * this.cellSize;
           // Glow effect
           this.ctx.shadowColor = this.colors.alive;
-          this.ctx.shadowBlur = 8;
+          this.ctx.shadowBlur = 10;
           this.ctx.fillStyle = this.colors.alive;
           this.ctx.fillRect(x + 1, y + 1, this.cellSize - 2, this.cellSize - 2);
           this.ctx.shadowBlur = 0;
