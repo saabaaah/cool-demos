@@ -31,11 +31,35 @@ class GameOfLife {
   init() {
     this.resize();
     this.createGrid();
+    this.addStartingPattern();
     window.addEventListener('resize', () => this.resize());
   }
 
+  addStartingPattern() {
+    // Add a few gliders and some random cells for an interesting start
+    const patterns = [
+      { x: 10, y: 10, pattern: [[0, -1], [1, 0], [-1, 1], [0, 1], [1, 1]] }, // glider
+      { x: 35, y: 15, pattern: [[0, -1], [1, 0], [-1, 1], [0, 1], [1, 1]] }, // glider
+      { x: 25, y: 25, pattern: [[-4, -6], [-3, -6], [-2, -6], [2, -6], [3, -6], [4, -6], [-4, -1], [-3, -1], [-2, -1], [2, -1], [3, -1], [4, -1], [-4, 1], [-3, 1], [-2, 1], [2, 1], [3, 1], [4, 1], [-4, 6], [-3, 6], [-2, 6], [2, 6], [3, 6], [4, 6], [-6, -4], [-6, -3], [-6, -2], [-6, 2], [-6, 3], [-6, 4], [-1, -4], [-1, -3], [-1, -2], [-1, 2], [-1, 3], [-1, 4], [1, -4], [1, -3], [1, -2], [1, 2], [1, 3], [1, 4], [6, -4], [6, -3], [6, -2], [6, 2], [6, 3], [6, 4]] } // pulsar
+    ];
+
+    patterns.forEach(({ x, y, pattern }) => {
+      pattern.forEach(([dx, dy]) => {
+        const px = x + dx;
+        const py = y + dy;
+        if (px >= 0 && px < this.gridSize && py >= 0 && py < this.gridSize) {
+          this.grid[px][py] = 1;
+        }
+      });
+    });
+    this.render();
+  }
+
   resize() {
-    const maxSize = Math.min(window.innerWidth - 40, 700);
+    // Account for header, controls, and padding
+    const availableHeight = window.innerHeight - 320;
+    const availableWidth = window.innerWidth - 40;
+    const maxSize = Math.min(availableWidth, availableHeight, 550);
     this.canvas.width = maxSize;
     this.canvas.height = maxSize;
     this.cellSize = this.canvas.width / this.gridSize;
