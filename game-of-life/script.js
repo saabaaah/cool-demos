@@ -361,11 +361,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Clear
   document.getElementById('clearBtn').addEventListener('click', () => {
+    document.querySelectorAll('[data-pattern]').forEach(b => b.classList.remove('active'));
     game.clear();
   });
 
   // Random
   document.getElementById('randomBtn').addEventListener('click', () => {
+    document.querySelectorAll('[data-pattern]').forEach(b => b.classList.remove('active'));
     game.randomize();
   });
 
@@ -384,8 +386,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Patterns
-  document.querySelectorAll('[data-pattern]').forEach(btn => {
+  const patternBtns = document.querySelectorAll('[data-pattern]');
+  patternBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      // Remove active from all pattern buttons
+      patternBtns.forEach(b => b.classList.remove('active'));
+      // Add active to clicked button
+      btn.classList.add('active');
+
       const patternName = btn.dataset.pattern;
       if (PATTERNS[patternName]) {
         game.placePattern(PATTERNS[patternName]);
