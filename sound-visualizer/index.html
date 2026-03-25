@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sound Visualizer | Cool Demos</title>
+  <meta name="description" content="Sound Visualizer - Watch music come alive with mesmerizing visual patterns">
+  <meta name="author" content="Sabah HM">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="../index.html" class="back-btn" title="Back to Cool Demos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </a>
+
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Sound Visualizer</h1>
+      <p class="subtitle">Audio Reactive Graphics</p>
+    </header>
+
+    <div class="canvas-wrapper">
+      <canvas id="visualizerCanvas"></canvas>
+      <div class="stats">
+        Mode: <span id="currentMode">Bars</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-group">
+        <button id="startBtn" class="btn btn-primary">Start Mic</button>
+        <button id="demoBtn" class="btn">Demo Mode</button>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Style</label>
+        <button class="mode-btn active" data-mode="bars">Bars</button>
+        <button class="mode-btn" data-mode="circular">Circular</button>
+        <button class="mode-btn" data-mode="wave">Wave</button>
+        <button class="mode-btn" data-mode="particles">Particles</button>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Sensitivity</label>
+        <input type="range" id="sensitivitySlider" min="0.5" max="3" step="0.1" value="1.5" class="slider">
+      </div>
+    </div>
+
+    <div class="info">
+      <p><strong>Click Start Mic</strong> to visualize your audio, or use Demo Mode for synthetic audio</p>
+    </div>
+
+    <footer class="footer">
+      <p>Made by <a href="https://www.linkedin.com/in/sabah-hm/" target="_blank" rel="noopener">Sabah HM</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
