@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fourier Drawing | Cool Demos</title>
+  <meta name="description" content="Fourier Drawing - Watch rotating circles recreate any shape you draw">
+  <meta name="author" content="Sabah HM">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="../index.html" class="back-btn" title="Back to Cool Demos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </a>
+
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Fourier Drawing</h1>
+      <p class="subtitle">Epicycles & Harmonics</p>
+    </header>
+
+    <div class="canvas-wrapper">
+      <canvas id="fourierCanvas"></canvas>
+      <div class="stats">
+        Circles: <span id="circleCount">0</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-group">
+        <button id="clearBtn" class="btn btn-primary">Draw New</button>
+        <button id="presetBtn" class="btn">Star</button>
+        <button id="heartBtn" class="btn">Heart</button>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Circles</label>
+        <input type="range" id="circlesSlider" min="5" max="100" value="50" class="slider">
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Speed</label>
+        <input type="range" id="speedSlider" min="1" max="10" value="3" class="slider">
+      </div>
+    </div>
+
+    <div class="info">
+      <p><strong>Draw a shape</strong> on the canvas • Watch circles recreate it with Fourier transform</p>
+    </div>
+
+    <footer class="footer">
+      <p>Made by <a href="https://www.linkedin.com/in/sabah-hm/" target="_blank" rel="noopener">Sabah HM</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

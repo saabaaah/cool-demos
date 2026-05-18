@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flocking Boids | Cool Demos</title>
+  <meta name="description" content="Flocking Boids - Watch birds move in realistic swarms using simple rules">
+  <meta name="author" content="Sabah HM">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Back Button -->
+  <a href="../index.html" class="back-btn" title="Back to Cool Demos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </a>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="title">Flocking Boids</h1>
+      <p class="subtitle">Emergent Swarm Behavior</p>
+    </header>
+
+    <!-- Canvas -->
+    <div class="canvas-wrapper">
+      <canvas id="boidsCanvas"></canvas>
+      <div class="stats">
+        <span>Boids: <span id="boidCount">150</span></span>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <!-- Boid Count -->
+      <div class="control-group">
+        <label class="control-label">Boids</label>
+        <input type="range" id="countSlider" min="50" max="400" value="150" class="slider">
+        <span id="countValue" class="slider-value">150</span>
+      </div>
+
+      <!-- Separation -->
+      <div class="control-group">
+        <label class="control-label">Separation</label>
+        <input type="range" id="separationSlider" min="0" max="3" step="0.1" value="1.5" class="slider">
+      </div>
+
+      <!-- Alignment -->
+      <div class="control-group">
+        <label class="control-label">Alignment</label>
+        <input type="range" id="alignmentSlider" min="0" max="3" step="0.1" value="1" class="slider">
+      </div>
+
+      <!-- Cohesion -->
+      <div class="control-group">
+        <label class="control-label">Cohesion</label>
+        <input type="range" id="cohesionSlider" min="0" max="3" step="0.1" value="1" class="slider">
+      </div>
+
+      <!-- Mouse Mode -->
+      <div class="control-group">
+        <label class="control-label">Mouse</label>
+        <div class="toggle-group">
+          <button class="toggle-btn active" data-mode="attract">Attract</button>
+          <button class="toggle-btn" data-mode="repel">Repel</button>
+          <button class="toggle-btn" data-mode="none">None</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="info">
+      <p><strong>Move mouse</strong> over canvas to interact with the flock</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Made by <a href="https://www.linkedin.com/in/sabah-hm/" target="_blank" rel="noopener">Sabah HM</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

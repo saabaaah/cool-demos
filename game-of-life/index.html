@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game of Life | Cool Demos</title>
+  <meta name="description" content="Conway's Game of Life - Watch cellular automaton patterns evolve and emerge">
+  <meta name="author" content="Sabah HM">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Back Button -->
+  <a href="../index.html" class="back-btn" title="Back to Cool Demos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </a>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="title">Game of Life</h1>
+      <p class="subtitle">Conway's Cellular Automaton</p>
+    </header>
+
+    <!-- Canvas -->
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas"></canvas>
+      <div class="generation-counter">
+        Generation: <span id="generation">0</span>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <!-- Playback -->
+      <div class="control-group">
+        <button id="playPauseBtn" class="btn btn-primary">
+          <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </button>
+        <button id="stepBtn" class="btn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+        </button>
+        <button id="clearBtn" class="btn">Clear</button>
+        <button id="randomBtn" class="btn">Random</button>
+      </div>
+
+      <!-- Speed -->
+      <div class="control-group">
+        <label class="control-label">Speed</label>
+        <input type="range" id="speedSlider" min="1" max="60" value="15" class="slider">
+        <span id="speedValue" class="slider-value">15 fps</span>
+      </div>
+
+      <!-- Grid Size -->
+      <div class="control-group">
+        <label class="control-label">Grid</label>
+        <select id="gridSize" class="select">
+          <option value="30">30 × 30</option>
+          <option value="50" selected>50 × 50</option>
+          <option value="80">80 × 80</option>
+          <option value="100">100 × 100</option>
+        </select>
+      </div>
+
+      <!-- Patterns -->
+      <div class="control-group">
+        <button class="btn btn-small" data-pattern="glider">Glider</button>
+        <button class="btn btn-small" data-pattern="lwss">LWSS</button>
+        <button class="btn btn-small" data-pattern="pulsar">Pulsar</button>
+        <button class="btn btn-small" data-pattern="pentadecathlon">Penta</button>
+        <button class="btn btn-small" data-pattern="gosper">Gosper Gun</button>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="info">
+      <p><strong>Click</strong> or <strong>drag</strong> to draw cells • <strong>Space</strong> to play/pause • <strong>→</strong> to step</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Made by <a href="https://www.linkedin.com/in/sabah-hm/" target="_blank" rel="noopener">Sabah HM</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

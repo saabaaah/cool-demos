@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Algorithms | Cool Demos</title>
+  <meta name="description" content="Sorting Algorithms - Watch different sorting algorithms race and visualize their strategies">
+  <meta name="author" content="Sabah HM">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="../index.html" class="back-btn" title="Back to Cool Demos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </a>
+
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Sorting Algorithms</h1>
+      <p class="subtitle">Visual Algorithm Comparison</p>
+    </header>
+
+    <div class="visualizer-container">
+      <div class="visualizer">
+        <div class="visualizer-header">
+          <span class="algo-name" id="algoName1">Bubble Sort</span>
+          <span class="algo-stats" id="algoStats1">0 comparisons</span>
+        </div>
+        <canvas id="canvas1"></canvas>
+      </div>
+      <div class="visualizer">
+        <div class="visualizer-header">
+          <span class="algo-name" id="algoName2">Quick Sort</span>
+          <span class="algo-stats" id="algoStats2">0 comparisons</span>
+        </div>
+        <canvas id="canvas2"></canvas>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control-group">
+        <button id="startBtn" class="btn btn-primary">Start Race</button>
+        <button id="resetBtn" class="btn">Reset</button>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Left</label>
+        <select id="algo1" class="select">
+          <option value="bubble">Bubble Sort</option>
+          <option value="selection">Selection Sort</option>
+          <option value="insertion">Insertion Sort</option>
+          <option value="quick" selected>Quick Sort</option>
+          <option value="merge">Merge Sort</option>
+          <option value="heap">Heap Sort</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Right</label>
+        <select id="algo2" class="select">
+          <option value="bubble" selected>Bubble Sort</option>
+          <option value="selection">Selection Sort</option>
+          <option value="insertion">Insertion Sort</option>
+          <option value="quick">Quick Sort</option>
+          <option value="merge">Merge Sort</option>
+          <option value="heap">Heap Sort</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Size</label>
+        <input type="range" id="sizeSlider" min="20" max="150" value="50" class="slider">
+        <span id="sizeValue" class="slider-value">50</span>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Speed</label>
+        <input type="range" id="speedSlider" min="1" max="100" value="50" class="slider">
+      </div>
+    </div>
+
+    <div class="info">
+      <p>Compare sorting algorithms side by side • Watch their different strategies</p>
+    </div>
+
+    <footer class="footer">
+      <p>Made by <a href="https://www.linkedin.com/in/sabah-hm/" target="_blank" rel="noopener">Sabah HM</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
