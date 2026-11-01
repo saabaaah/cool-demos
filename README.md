@@ -12,7 +12,7 @@ One planner model splits a project into tasks; a pool of cheaper workers execute
 ### Territory Wars
 Strategic territorial conquest simulation with multiple themes and intelligent agents.
 
-[View Demo](../territory-wars/index.html)
+[View Demo](./territory-wars/index.html)
 
 ## About
 

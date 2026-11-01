@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Territory Wars | Strategic Conquest Simulation</title>
+    <meta
+      name="description"
+      content="Territory Wars - Watch autonomous agents battle for territorial control in this beautiful, configurable simulation. Multiple themes, particle effects, and strategic gameplay."
+    />
+    <meta name="keywords" content="territory wars, simulation, strategy, agents, territorial conquest, battle simulation" />
+    <meta name="author" content="Sabah HM" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Back to Main -->
+    <a href="../index.html" class="back-btn" title="Back to Cool Demos">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+    </a>
+
+    <!-- Landing Page -->
+    <div id="landingPage">
+      <canvas id="neuralBackground"></canvas>
+      <div class="landing-content">
+        <div class="brand-badge">⚔️</div>
+        <h1 class="landing-title">TERRITORY WARS</h1>
+        <p class="landing-subtitle">Strategic Territorial Conquest</p>
+        <button class="start-button" id="startButton">
+          <span>Begin Conquest</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Configuration Modal -->
+    <div id="configModal">
+      <div class="config-card">
+        <h2 class="config-title">Configure Simulation</h2>
+        <form id="configForm">
+          <div class="form-group">
+            <label class="form-label" for="agentsPerSide">Agents Per Side</label>
+            <input 
+              type="number" 
+              id="agentsPerSide" 
+              class="form-input" 
+              min="1" 
+              max="10" 
+              value="1"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="speedSlider">Speed</label>
+            <input 
+              type="range" 
+              id="speedSlider" 
+              class="form-slider" 
+              min="1" 
+              max="5" 
+              value="3"
+            />
+            <div class="slider-value" id="speedValue">Medium</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Theme</label>
+            <div class="theme-selector">
+              <div class="theme-option selected" data-theme="day-night">
+                <div class="theme-name">Day vs Night</div>
+              </div>
+              <div class="theme-option" data-theme="good-evil">
+                <div class="theme-name">Good vs Evil</div>
+              </div>
+              <div class="theme-option" data-theme="seasons">
+                <div class="theme-name">4 Seasons</div>
+              </div>
+              <div class="theme-option" data-theme="condiments">
+                <div class="theme-name">Condiments War</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="cancelButton">Cancel</button>
+            <button type="submit" class="btn btn-primary">Start Simulation</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Simulation View -->
+    <div id="simulationView">
+      <div class="simulation-controls">
+        <button class="reset-button" id="resetButton">Reset</button>
+        <button class="new-game-button" id="newGameButton">New Game</button>
+      </div>
+      <div id="container">
+        <canvas id="pongCanvas" width="600" height="600"></canvas>
+        <div id="score"></div>
+        <div id="params"></div>
+        <p id="made">
+          Made by <a href="https://www.linkedin.com/in/sabah-hm/" target="_blank" rel="noopener">Sabah HM</a> | Inspired by
+          <a href="https://koenvangilst.nl/labs/pong-wars" target="_blank" rel="noopener">Pong Wars</a>
+        </p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
