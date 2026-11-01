@@ -618,8 +618,10 @@ function drawWorker(c, lane, w) {
   c.restore();
   if (busy && w.eligible) {
     c.font = `500 ${g.big ? 12 : 10}px ${SANS}`;
-    const label = fit(c, w.task.name, Math.max(40, g.sp + 6));
-    txt(c, label, w.x, w.y + w.r + (g.big ? 18 : 14), `500 ${g.big ? 12 : 10}px ${SANS}`, 'rgba(255,255,255,0.8)', 'center');
+    // small lanes: clip to the worker spacing and stagger every other label so neighbours never collide
+    const label = fit(c, w.task.name, Math.max(40, g.big ? g.sp + 6 : g.sp - 4));
+    const stagger = g.big ? 0 : (w.index % 2) * 11;
+    txt(c, label, w.x, w.y + w.r + (g.big ? 18 : 14) + stagger, `500 ${g.big ? 12 : 10}px ${SANS}`, 'rgba(255,255,255,0.8)', 'center');
   }
 }
 
