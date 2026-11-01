@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Orchestrator | Cool Demos</title>
+  <meta name="description" content="Agent Orchestrator - Watch a planner route coding tasks to the cheapest model that can do the job">
+  <meta name="author" content="Sabah HM">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Back Button -->
+  <a href="../index.html" class="back-btn" title="Back to Cool Demos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M19 12H5M12 19l-7-7 7-7"/>
+    </svg>
+  </a>
+
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="title">Agent Orchestrator</h1>
+      <p class="subtitle">Smart Model Routing</p>
+    </header>
+
+    <!-- Canvas -->
+    <div class="canvas-wrapper">
+      <canvas id="orchCanvas"></canvas>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <!-- Mode -->
+      <div class="control-group">
+        <label class="control-label">Mode</label>
+        <div class="toggle-group" id="modeGroup">
+          <button class="toggle-btn active" data-mode="single">Single</button>
+          <button class="toggle-btn" data-mode="race">Race</button>
+        </div>
+      </div>
+
+      <!-- Strategy (single mode only) -->
+      <div class="control-group" id="strategyGroupWrap">
+        <label class="control-label">Strategy</label>
+        <div class="toggle-group" id="strategyGroup">
+          <button class="toggle-btn" data-strategy="heavy">All heavy</button>
+          <button class="toggle-btn" data-strategy="fast">All fast</button>
+          <button class="toggle-btn active" data-strategy="smart">Smart routing</button>
+        </div>
+      </div>
+
+      <!-- Fast workers -->
+      <div class="control-group">
+        <label class="control-label">Fast</label>
+        <input type="range" id="fastSlider" min="1" max="8" step="1" value="4" class="slider">
+        <span id="fastValue" class="slider-value">4</span>
+      </div>
+
+      <!-- Mid workers -->
+      <div class="control-group">
+        <label class="control-label">Mid</label>
+        <input type="range" id="midSlider" min="1" max="6" step="1" value="2" class="slider">
+        <span id="midValue" class="slider-value">2</span>
+      </div>
+
+      <!-- Heavy workers -->
+      <div class="control-group">
+        <label class="control-label">Heavy</label>
+        <input type="range" id="heavySlider" min="1" max="4" step="1" value="2" class="slider">
+        <span id="heavyValue" class="slider-value">2</span>
+      </div>
+
+      <!-- Speed -->
+      <div class="control-group">
+        <label class="control-label">Speed</label>
+        <input type="range" id="speedSlider" min="0.5" max="4" step="0.1" value="1" class="slider">
+        <span id="speedValue" class="slider-value">1x</span>
+      </div>
+
+      <!-- Buttons -->
+      <div class="control-group">
+        <div class="toggle-group">
+          <button class="toggle-btn action" id="newBtn">New project</button>
+          <button class="toggle-btn action" id="pauseBtn">Pause</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="info">
+      <p><strong>Race</strong> runs all three strategies on the same project. Costs are in credits. Failures a worker does not notice ship as hidden defects; the planner finds them at review and pays to diagnose them.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Made by <a href="https://www.linkedin.com/in/sabah-hm/" target="_blank" rel="noopener">Sabah HM</a></p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

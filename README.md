@@ -4,6 +4,11 @@ A collection of interactive demos and simulations by Sabah HM.
 
 ## Demos
 
+### Agent Orchestrator
+One planner model splits a project into tasks; a pool of cheaper workers executes them. Race three routing strategies (all heavy, all fast, smart routing) on the same project and compare time, cost, and retries.
+
+[View Demo](./agent-orchestrator/index.html)
+
 ### Territory Wars
 Strategic territorial conquest simulation with multiple themes and intelligent agents.
 
