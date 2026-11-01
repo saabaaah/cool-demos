@@ -328,7 +328,8 @@ class Lane {
         ny = -ny;
       }
       const cx = (f.sx + ex) / 2 + nx * len * t.bend;
-      const cy = (f.sy + ey) / 2 + ny * len * t.bend;
+      // keep the curve inside the lane so cards never clip under the header or footer
+      const cy = clamp((f.sy + ey) / 2 + ny * len * t.bend, this.g.hh + 18, this.g.h - 18);
       const u = 1 - e;
       t.x = u * u * f.sx + 2 * u * e * cx + e * e * ex;
       t.y = u * u * f.sy + 2 * u * e * cy + e * e * ey;
